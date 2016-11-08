@@ -1,0 +1,36 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Permalinks
+permalink:        pretty
+
+# Server
+source:           site
+destination:      dist
+host:             0.0.0.0
+port:             9001
+baseurl:          /
+encoding:         UTF-8
+
+
+
+apps:
+  dashboard:  https://dashboard.dataporten.no
+  groups:     https://grupper.dataporten.no
+  min:        https://minside.dataporten.no
+  homepage:   https://uninett.no
+
+ep:
+  auth:       https://auth.dataporten.no
+  authhost:   auth.dataporten.no
+  api:        https://api.dataporten.no
+  apihost:    api.dataporten.no
+  groups:     https://groups-api.dataporten.no
+  groupshost: groups-api.dataporten.no
+  groupsBasePath: /groups/
+  apigkhost: dataporten-api.no
+
+
+exampleAuthorizationHeader: "Authorization: Bearer 0f0935c3-a997-40fb-89c2-f7da126ba5d9"
+

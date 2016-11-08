@@ -1,0 +1,326 @@
+---
+layout: default
+title: Dataflyt
+slug: dataflyt
+---
+
+
+
+<div class="bs-docs-section">
+    <h1 id="" class="page-header">Dataporten – Dataflyt</h1>
+
+    <p>På denne siden skal vi forskøke å gi en oversikt over de forskjellige modellene for dataflyt i Dataporten.</p>
+
+
+
+    <h2>Åpne data – helt åpne API-er</h2>
+
+    <p>Med helt åpne API-er mener vi data som alle kan hente ned uten verken registrering eller autentisering. Åpne data vil bli veldig viktig i utdanningssektoren, men står ikke så sentralt i Dataporten, siden Dataporten hovedsaklig handler om autentisering og tilgangsstyring.</p>
+
+    <p>Allikevel finnes noen få åpne datakilder i Dataporten:</p>
+
+    <div class="row">
+        
+        <div class="col-md-4">
+            <div class="panel panel-default ">
+                <div class="panel-heading">Organisasjoner</div>
+                <div class="panel-body">
+                    <p>Liste over alle utdanningsinstitusjoner i Norge.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-default ">
+                <div class="panel-heading">Applikasjoner</div>
+                <div class="panel-body">
+                    <p>Liste over alle applikasjoner i Dataporten.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-default ">
+                <div class="panel-heading">API-er</div>
+                <div class="panel-body">
+                    <p>Liste over alle API-er / datakilder i Dataporten.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <h2>Brukerstyrte/organisasjonsstyrte API-er</h2>
+
+    <p>For applikasjoner som er basert på privat bruk, kan brukeren om tilgang til disse API-ene på vegne av den autentiserte brukeren. For at applikasjonen skal få tilgang, må applikasjonen være registrert av en godkjent tjenesteleverandør eller autentisert Feidebruker, og applikasjonen må ha vært igjennom samtykke-evaluering for hver av brukerene den forsøker å hente ut data fra.</p>
+
+    <p>Applikasjoner som er basert på obligatorisk bruk i undervisningen vil kunne få tilgang til de samme API-ene, uten eksplisitt samtykke fra brukeren, dersom den aktuelle brukerens institusjon har valgt å godkjenne den spesifikke tjenesten for slik bruk. Dette vil innebære avtaleverk (databehandleravtale osv) mellom tjenesteleverandør og institusjon.</p>
+
+    <p>Full granularitet støttes, slik at tjenester kun skal kunne etterspørre og få tilgang til data som er nødvendige.</p>
+
+    <div class="row">
+        
+        <div class="col-md-6">
+            <div class="panel panel-default ">
+                <div class="panel-heading">Brukerinfo</div>
+                <div class="panel-body">
+                    <p><i class="fa fa-key fa-fw"></i> BrukerID (UUID)</p>
+                    <p><i class="fa fa-key fa-fw"></i> Feidenavn</p>
+                    <p><i class="fa fa-file-text-o fa-fw"></i> Navn</p>
+                    <p><i class="fa fa-envelope-o fa-fw"></i> E-post</p>
+                    <p><i class="fa fa-image fa-fw"></i> Profilbilde</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default ">
+                <div class="panel-heading">Grupper</div>
+                <div class="panel-body">
+                    <p>Den aktuelle brukerens tilknytning til grupper.</p>
+
+                    <ul class="uninett-ul">
+                        <li>Tilhørighet til institusjon</li>
+                        <li>Tilhørighet til organisasjonsenhet</li>
+                        <li>Samarbeidsgruppe (egendefinert)</li>
+                        <li>Undervisningsgruppe (grunnopplæringa)</li>
+                        <li>Kull</li>
+                        <li>Klasse</li>
+                        <li>Studieprogram</li>
+                        <li>Studieretning</li>
+                        <li>Emnetilhørighet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <h2>Fleksible muligheter for tilgangsstyring for tredjeparts datakilder</h2>
+
+    <p>På alle API-er som en institusjon ønsker å eksponere via Dataporten ved hjelp av den generiske API Gatekeeper funksjonaliteten, kan institusjonen (eller dataeieren) selv velge policy for tilgangsstyring til API-et.</p>
+
+    <p>Her er noen eksempler på forskjellige varianter av tilgangsstyring som alle er mulige å benytte i Dataporten:</p>
+
+
+    <table id="dataflyt" class="table table-condensed table-stripes table-bordered">
+        <thead>
+            <tr>
+                <th>Eksempel</th>
+                <th>Klient-autentisering</th>
+                <th>Bruker-autentisering</th>
+                <th>Bruker-samtykke</th>
+                <th>Godkjenning institusjon</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Åpne data</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Brukerinfo privat bruk</td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Brukerinfo org.styrt</td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+            </tr>
+
+            <tr>
+                <td>Mulig system-til-system integrasjon<br />(Tradisjonell datautveksling uten brukerinvolvering.)</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <p>I prosessen hvor institusjonene arbeider for å tilgjengeliggjøre nye datakilder, vil de kunne ta valg basert på de forskjellige dataenes egenskaper.</p>
+
+    <p>Her er et par eksempler på datakilder som det er naturlig å kunne tilgjengeliggjøre med forskjellig profil for tilgangsstyring. (Viktig og merke seg at ingen av disse APIene er tilgjengelig i Dataporten i dag. Og det vil de ikke heller uten at institusjonene tar aktive valg om å tilgjengeliggjøre de sammen med aktører som FSAT)</p>
+
+    <div class="row">
+     
+
+
+        <div class="col-md-4">
+            <div class="panel panel-success ">
+                <div class="panel-heading"><span class="label label-info pull-right">Eksempel</span> Emneregister (åpne data)</div>
+                <div class="panel-body">
+
+
+                    <table class="table table-condensed table-stripes table-bordered">
+
+                        <tr>
+                            <td>Klient-autentisering</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Bruker-autentisering</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Bruker-samtykke</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Godkjenning institusjon</td>
+                            <td></td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="panel panel-success ">
+                <div class="panel-heading"><span class="label label-info pull-right">Eksempel</span> Informasjon om betalt semesteravgift</div>
+                <div class="panel-body">
+
+
+                    <table class="table table-condensed table-stripes table-bordered">
+
+                        <tr>
+                            <td>Klient-autentisering</td>
+                            <td><i class="fa fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Bruker-autentisering</td>
+                            <td><i class="fa fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Bruker-samtykke</td>
+                            <td><i class="fa fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Godkjenning institusjon</td>
+                            <td></td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-danger ">
+                <div class="panel-heading"><span class="label label-info pull-right">Eksempel</span> Eksamensresultater</div>
+                <div class="panel-body">
+
+                    <p>Kan for eksempel ha to typer applikasjoner. En for tredjepartsleverandører:</p>
+
+                    <table class="table table-condensed table-stripes table-bordered">
+
+                        <tr>
+                            <td>Klient-autentisering</td>
+                            <td><i class="fa fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Bruker-autentisering</td>
+                            <td><i class="fa fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Bruker-samtykke</td>
+                            <td><i class="fa fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Godkjenning institusjon</td>
+                            <td><i class="fa fa-check"></i></td>
+                        </tr>
+                    </table>
+
+                    <p>Og en for egne systemtjenester</p>
+
+                    <table class="table table-condensed table-stripes table-bordered">
+
+                        <tr>
+                            <td>Klient-autentisering</td>
+                            <td><i class="fa fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Bruker-autentisering</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Bruker-samtykke</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Godkjenning institusjon</td>
+                            <td><i class="fa fa-check"></i></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <h2>Datakilder med spesielle tilgangsstyring-mekanismer</h2>
+
+    <p>Personsøk lar personer søke etter og finne andre personer ved en utdanningsinstitusjon. Ved tilkobling til Dataporten, så må institusjonen ta et aktivt valg for hvordan tilgangsstyring skal gjøres for personsøk.</p>
+
+
+    <div class="row">
+        
+        <div class="col-md-6">
+            <div class="panel panel-default ">
+                <div class="panel-heading">Personsøk</div>
+                <div class="panel-body">
+                    <p>Inkrementell søk etter navn på andre personer ved institusjoner. For personer vises: </p>
+
+                    <p><i class="fa fa-file-text-o fa-fw"></i> Navn</p>
+                    <p><i class="fa fa-image fa-fw"></i> Profilbilde (valgfritt)</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <p>For henholdsvis søk etter ansatte og øvrige (studenter med mer), kan institusjonen velge mellom en av følgende tilgangsnivåer:</p>
+    <ul>
+        <li><code>åpen</code> gir alle autentiserte personer mulighet for å søke. Det betyr at alle kan gjøre søk, men at søkene vil kunne knyttes til den som søker og begrenses av rate limiting osv.</li>
+        <li><code>begrenset</code> gir kun autentiserte personer ved egen institusjon mulighet for å søke på hverandre.</li>
+        <li><code>lukket</code> gir ikke tilgang til noen å søke.</li>
+    </ul>
+
+    <p>For eksempel kan en institusjon velge å la søk etter ansatte være åpent for alle (også utenfor institusjoner), mens søk etter studenter er kun tilgjengelig for brukere ved samme institusjon.</p>
+
+
+
+
+</div>
