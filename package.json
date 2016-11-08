@@ -3,19 +3,19 @@
 	"description": "Web site for UHSky.",
 	"version": "0.1.0",
 	"keywords": [
-		"groups","authorization","feide"
+		"uhsky","office365","uninett"
 	],
-	"homepage": "http://feideconnect.no",
-	"author": "Andreas Åkre Solberg",
+	"homepage": "https://www.uninett.no/skytjenester",
+	"author": "Rune Myrhaug",
 	"scripts": {
 		"test": "grunt test"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/andreassolberg/feideconnect-site.git"
+		"url": "https://github.com/UNINETT/uhsky-startpakke.git"
 	},
 	"bugs": {
-		"url": "https://github.com/andreassolberg/feideconnect-site/issues"
+		"url": "https://github.com/UNINETT/uhsky-startpakke/issues"
 	},
 	"devDependencies": {
 		"btoa": "~1.1.2",
