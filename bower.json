@@ -2,7 +2,7 @@
 	"name": "feideconnect-site",
 	"dependencies": {
 		"requirejs": "*",
-		"uninett-theme": "https://<TOKEN>:x-oauth-basic@scm.uninett.no:system/uninett-theme.git",
+		"uninett-bootstrap-theme": "*",
 		"font-awsome": "*"
 	},
 	"cwd": "site",
