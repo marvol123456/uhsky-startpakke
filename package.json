@@ -8,7 +8,8 @@
 	"homepage": "https://www.uninett.no/skytjenester",
 	"author": "Rune Myrhaug",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "bower install"
 	},
 	"repository": {
 		"type": "git",
