@@ -1,3 +1,0 @@
-[config]
-project = site
-command = deploy.cmd
