@@ -2,7 +2,7 @@
 
 :: ----------------------
 :: KUDU Deployment Script
-:: Version: 1.0.6
+:: Version: 1.0.9
 :: ----------------------
 
 :: Prerequisites
@@ -105,19 +105,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
-IF EXIST "%DEPLOYMENT_TARGET%\public\bower.json" (
- pushd "%DEPLOYMENT_TARGET%\public"
- call ..\node_modules\.bin\bower install
- IF !ERRORLEVEL! NEQ 0 goto error
- popd
- )
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:: Post deployment stub
-IF DEFINED POST_DEPLOYMENT_ACTION call "%POST_DEPLOYMENT_ACTION%"
-IF !ERRORLEVEL! NEQ 0 goto error
-
 goto end
 
 :: Execute command routine that will echo out when error
