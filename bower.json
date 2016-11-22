@@ -5,6 +5,6 @@
 		"uninett-bootstrap-theme": "*",
 		"font-awsome": "*"
 	},
-	"cwd": "site",
+	"cwd": "",
 	"directory": "bower_components"
 }
