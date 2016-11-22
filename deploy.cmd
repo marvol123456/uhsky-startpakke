@@ -131,4 +131,4 @@ exit /b 1
 :end
 endlocal
 echo Finished successfully.
-echo UNINETT
+echo UNINETT AS
