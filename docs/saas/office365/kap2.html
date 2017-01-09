@@ -166,6 +166,35 @@ slug: office365
 					<p>Eller høyreklikk på fil du ønsker å beskytte:<p>
 					<img src="../screenshot/kap2_rms_klient2.jpg" style="width:755px;height:559px;">
 				</div>
+				
+				<h4 id="kravspesifikasjon" class="page-header">Exchange Online</h4>
+
+				<div class="bs-docs-section">
+					<p>For å aktivere IRM i Exchange Online, verifiser først at Azure RMS er aktivert.<p>
+					<ul>
+  						<li>Administrator -> Innstillinger -> Apper -> Microsoft Azure Rights Management -> Administrere Microsoft Azure Rights Management-innstillinger</li>
+  						<li>Aktiver</li>
+					</ul>					
+					<img src="../screenshot/kap2_exchange-irm1.jpg" style="width:1378px;height:708px;">
+					<p><a href="https://docs.microsoft.com/nb-no/rights-management/deploy-use/activate-service">https://docs.microsoft.com/nb-no/rights-management/deploy-use/activate-service</a><p>
+					<p>Benytt deretter PowerShell til å aktivere IRM for Exchange Online:<p>
+					<p><a href="https://docs.microsoft.com/nb-no/rights-management/deploy-use/configure-office365">https://docs.microsoft.com/nb-no/rights-management/deploy-use/configure-office365</a><p>
+				</div>
+				
+				<h3 id="kravspesifikasjon" class="page-header">Mobile Device Management (MDM)</h3>
+
+				<div class="bs-docs-section">
+					<p>Mobile device management (MDM) er en bransjebetegnelse for administrasjon av mobile enheter, for eksempel smarttelefoner, nettbrett og bærbare datamaskiner.<p>
+					<ul>
+  						<li>Hva gjør du hvis en ansatt mister sin smarttelefon? Inneholder den informasjon som ikke burde komme på avveie? Er det en konflikt med en ansatt som gjør at man ikke lenger ønsker å gi vedkommende tilgang til bedriftens data? De fleste av oss har en telefon eller et nettbrett som er koblet opp mot mail-kontoer, dropbox, sosiale medier og kanskje også interne applikasjoner. Det kan fort bli kritisk dersom uvedkommende får tilgang. Har man en MDM-løsning kan IT-ansvarlig, eller den som administrerer systemet, enkelt logge seg på og gjøre en rekke tiltak for å unngå at fremmede får tak i bedriftens viktige data. Man kan blant annet sørge for at alle ansatte til enhver tid har på kodelås og har siste programvareoppdatering som er grunnleggende for å ivareta sikkerheten.</li>
+  						<li>Med en MDM-løsning får man en mye mer effektiv drift og bedre kontroll over enhetene som tilhører bedriften. IT-ansvarlig kan logge seg på administrasjons-verktøyet og enkelt se alle enheter, og viktig informasjon som: Type enhet, modell, navn, imei og serienummer. Han eller hun kan videre se når enheten sist var koblet opp mot internett, hvor mye ledig plass hver enkelt bruker har, hvilke applikasjoner som er installert og hvilket operativsystem som kjøres. Ut i fra oversikten (dashboard) kan administrator enkelt legge til eller fjerne enheter, kjøre oppdateringer, og etablere ønskede konfigurasjoner som bedriften ønsker på enhetene.</li>
+					</ul>					
+					<p>Microsoft sin løsning for MDM er Intune:<p>
+					<p>Intune inngår ikke i Office 365 lisensieringen og må ved ønske om slik funksjonalitet kjøpes i tillegg. Intune kan kjøpes som en separat lisens eller bundlet med flere funksjoner i Microsoft Enterprise Mobility (EMS):<p>
+					<p><a href="https://www.microsoft.com/nb-no/server-cloud/enterprise-mobility/overview.aspx">https://www.microsoft.com/nb-no/server-cloud/enterprise-mobility/overview.aspx</a><p>
+				</div>
+				
+				
 			</div>
 			
 		</div>
