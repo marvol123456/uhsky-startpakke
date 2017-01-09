@@ -125,7 +125,47 @@ slug: office365
 
 				</div>
 
+				<h5 id="kravspesifikasjon" class="page-header">SharePoint Online TeamSite</h5>
 
+
+				<div class="bs-docs-section">
+					<p>Når dette er gjort har eier av en SharePoint Online Teamsite tilgang til å aktivere IRM på dokument bibliotek, for å beskytte filer som blir lastet ned.<p>
+					<p>Det vil være anbefalt å opprette et nytt dokument bibliotek, som konfidensielle dokumenter legges i.<p>
+					<ul>
+  						<li>https://support.office.com/en-us/article/Apply-Information-Rights-Management-to-a-list-or-library-3bdb5c4e-94fc-4741-b02f-4e7cc3c54aa1?ui=en-US&rs=en-US&ad=US</li>
+  						<li>https://support.office.com/en-us/article/Create-a-confidential-document-library-e0660483-3d95-4016-a2e9-5dc8d4ac139d</li>
+					</ul>
+					<p>Når dette er laget i Innstillinger -> Innstillinger for bibliotek (Library settings) -> Tillatelser og behandling (Permissions and Management) -> Information Rights Management<p>
+					
+					<img src="../screenshot/kap2_sharepoint-irm2.jpg" style="width:959px;height:602px;">
+					
+					<p>Marker «Begrens tillatelser for dette biblioteket ved nedlasting» og sett ett navn og en beskrivelse. For eksempel «IRM_O365_TeamSite-<TeamSite-navn>», «IRM beskyttelse på TeamSite for <TeamSite-navn>»<p>
+
+				</div>
+				
+				<h5 id="kravspesifikasjon" class="page-header">OneDrive For Business</h5>
+
+				<div class="bs-docs-section">
+					<p>Etter at IRM er aktivert av Office 365 Administrator i SharePoint administrasjonssenteret, kan hver bruker aktivere IRM på personlig OneDrive For Business lagringsområde.<p>
+					<p>I OneDrive For Business -> Innstillinger -> Nettstedinnstillinger<p>
+					
+					<img src="../screenshot/kap2_sharepoint-irm3.jpg" style="width:1120px;height:645px;">
+					
+					<p>Naviger til Områdeadministrasjon (Site Settings) -> Områdebibliotek og -lister (Site Libraries and lists) -> Tilpass «Dokumenter» (Customize «Documents») -> Tillatelser og behandling (Permissions and Management) -> IRM (Information Rights Management).<p>
+					<p>Marker «Begrens tillatelser for dette biblioteket ved nedlasting» og set ett navn og en beskrivelse. For eksempel «IRM_O365_User-<brukernavn>», «IRM beskyttelse på OneDrive for <brukernavn>»<p>
+
+				</div>
+				
+				<h4 id="kravspesifikasjon" class="page-header">Beskytte enkeltfiler</h4>
+
+				<div class="bs-docs-section">
+					<p>For å beskytte enkeltfiler må RMS applikasjonen installeres:<p>
+					<p>https://portal.aadrm.com/home/download<p>
+					<p>I Office applikasjonene vil en finne RMS under «Hjem»:<p>
+					<img src="../screenshot/kap2_rms_klient1.jpg" style="width:1315px;height:361px;">
+					<p>Eller høyreklikk på fil du ønsker å beskytte:<p>
+					<img src="../screenshot/kap2_rms_klient2.jpg" style="width:755px;height:559px;">
+				</div>
 			</div>
 			
 		</div>
