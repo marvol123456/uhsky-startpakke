@@ -10,17 +10,93 @@ slug: office365
 
 			<div class="col-md-8">
 
-				<h1 id="admin" class="page-header">Microsoft Office 365</h1>
+				<h1 id="admin" class="page-header">O365 - Teknisk implementering</h1>
 				
 				<div class="bs-callout bs-callout-danger" id="">
 		 			<h4>Proof of concept</h4>
 		 			<p>Startpakke er under utvikling.</p>
 				</div>
 			
+				<h2 id="admin" class="page-header">On-Premises Hardware / VM</h2>
+			
 				<div class="bs-docs-section">
-					<p>Her kommer det mer innhold<p>
+					<p>Behov for on-premises hardware / VM’er i oppsett av Office 365 vil avhenge av flere faktorer:<p>
+					<ul>
+  						<li>Skal hybrid Exchange tas i bruk?</li>
+  						<li>Skal hybrid SharePoint tas i bruk?</li>
+  						<li>Skal on-premises Skype for Business tas i bruk?</li>
+  						<li>Skal on-premises ADFS (AD federation service) tas i bruk?</li>
+					</ul>
+					<p>Dersom svaret på en eller flere av disse er «ja» vil det være behov for on-premises hardware / VM’er.<p>
+					<p>I tillegg vil det være behov for en server som kan benyttes til provisjonere brukere til Office 365.<p>
+					<p>Istedenfor å ta i bruk on-premises hardware / VM’er kan en vurdere å ta i bruk en public cloud (IaaS).<p>
+				</div>
+
+				<h2 id="admin" class="page-header">Oppretting av Office 365 tenant</h2>
+				
+				<h3 id="admin" class="page-header">Valg av tenantnavn</h3>
+
+				<div class="bs-docs-section">
+					<p>Når en ny Office 365 tenant (også av noen benevnt ”instans”) lages vil denne få tildelt et unikt domenenavn på formen <tenant>.onmicrosoft.com.<p>
+					<p>Det er viktig å bemerke seg at Microsoft ikke per i dag har noen support for å endre tenant-navn. Det er derfor lurt å tenke grundig igjennom hvilket tenant navn som er ønskelig. Dette tenant-navnet vil for eksempel bli synlig i alle SharePoint Online URL`er.<p>
+					<p>Eksempelvis dersom en tenant med navn ”stud<institusjon>.onmicrosoft.com” lages vil en være bundet til dette navnet også dersom en på et senere tidspunkt finner ut at ansatte skal benytte samme tenant som studentene.<p>
+					<p>Bedrifter, kommuner og institusjoner fusjoneres/endrer navn sett over et lengre tidsperspektiv. Sett i lys av dette kan en vurdere å opprette en tenant med et tenantnavn som er «uavhengig» av institusjonsnavnet, for å potensielt unngå å havne ut med et tenantnavn som ikke stemmer.<p>
 				</div>
 				
+				<h3 id="admin" class="page-header">Ansatte og elever/studenter i samme tenant</h3>		
+
+				<div class="bs-docs-section">
+					<p>For en undervisningsinstitusjon vil samhandling mellom ansatte og elever/studenter være viktig. Samtidig vil det være ønske om å kunne sette sikkerhetssperrer mellom ansatte og elever/studenter. Det være seg oppslag i kataloger eller tilgang til dokumenter/web-områder i Office 365. Ved å opprette en tenant for ansatte og en annen tenant for elever/studenter vil en oppnå høy kontroll på sikkerhet, men dette vil påvirke evnen til å samhandle i så stor grad at det ikke vil være anbefalt.<p>
+					<p>Anbefalingen vil være å opprette en tenant som inneholder både ansatte og elever/studenter. Sikkerhetssperrer mellom ansatte og elever/studenter kan bygges inn på et annet nivå.<p>
+				</div>
+				
+				<h3 id="admin" class="page-header">Opprette tenant</h3>		
+
+				<div class="bs-docs-section">
+					<p>Opprett gratis 30-dagers prøveperiode:<p>
+					<p><a href="https://portal.office.com/Signup/MainSignup15.aspx?Dap=False&QuoteId=79a957e9-ad59-4d82-b787-a46955934171&ali=1">https://portal.office.com/Signup/MainSignup15.aspx?Dap=False&QuoteId=79a957e9-ad59-4d82-b787-a46955934171&ali=1</a><p>
+					<p>Alternativt gå til <a href="https://www.office.com">https://www.office.com</a>, klikk på "prøv det gratis for bedrifter".<p>
+					<p>Et tips kan være at denne brukeren som opprettes her lages som en administrator-bruker. For eksempel admin@<tenant>.onmicrosoft.com. Denne brukeren vil bli tilordnet «Global administrator» (Company Administrator) rollen. Superbruker/root-bruker i Office365.<p>
+					<p>Kontakt Crayon for å knytte dine Campus-lisenser til opprettet tenant. Alternativt når prøveperioden er i ferd med å gå ut gå til:<p>
+					<p><a href="https://portal.office.com/AdminPortal/Home?switchtomoderndefault=true#/cataloghttps://portal.office.com/AdminPortal/Home?switchtomoderndefault=true#/catalog">https://portal.office.com/AdminPortal/Home?switchtomoderndefault=true#/cataloghttps://portal.office.com/AdminPortal/Home?switchtomoderndefault=true#/catalog</a><p>
+					<p>Kjøp ønsket type lisens.<p>
+					<p>For å være berettiget til å kjøpe lisenser basert på «Planer for utdanning» (educational pris) vil du først måtte knytte ditt domene inn i tenanten som er laget. Deretter når du utfører et kjøp av en slik type lisens (For eksempel «Office 365 Education for fakultet») vil Microsoft gjøre en avsjekk/ verifisere at ditt domene <institusjon.no> er berettiget til educational prising.<p>
+				</div>
+				
+				<h3 id="admin" class="page-header">AzureAD (Azure Active Directory)</h3>
+
+				<div class="bs-docs-section">
+					<p>Når en ny Office 365 tenant lages vil denne automatisk bli knyttet til / få opprettet en AzureAd. AzureAD er brukerdatabasen til Office 365 (En felles brukerdatabase for Azure, O365 og Intune).<p>
+					<p>https://azure.microsoft.com/nb-no/documentation/articles/active-directory-whatis/<p>
+					<p>Tilgang til AzureAD nås via Office 365 Administrator -> Administrasjonssentre -> Azure AD<p>
+					
+					<img src="../screenshot/kap5_azuread1.jpg" style="width:1269px;height:1017px;">
+					
+					<p>Eller via PowerShell:<p>
+					<p>https://msdn.microsoft.com/en-us/library/JJ151815.aspxhttps://msdn.microsoft.com/en-us/library/JJ151815.aspx<p>
+					<p><a href="https://portal.office.com/AdminPortal/Home?switchtomoderndefault=true#/cataloghttps://portal.office.com/AdminPortal/Home?switchtomoderndefault=true#/catalog">https://portal.office.com/AdminPortal/Home?switchtomoderndefault=true#/cataloghttps://portal.office.com/AdminPortal/Home?switchtomoderndefault=true#/catalog</a><p>
+					<p>Kjøp ønsket type lisens.<p>
+					<p>For å være berettiget til å kjøpe lisenser basert på «Planer for utdanning» (educational pris) vil du først måtte knytte ditt domene inn i tenanten som er laget. Deretter når du utfører et kjøp av en slik type lisens (For eksempel «Office 365 Education for fakultet») vil Microsoft gjøre en avsjekk/ verifisere at ditt domene <institusjon.no> er berettiget til educational prising.<p>
+				</div>
+
+				<h4 id="admin" class="page-header">Azure AD Premium</h4>
+
+				<div class="bs-docs-section">
+					<p>Azure AD Premium er en versjon av Azure AD med utvidet funksjonalitet:<p>
+					<p>https://azure.microsoft.com/nb-no/documentation/articles/active-directory-editions/<p>
+					<p>Azure AD Premium er ikke inkludert i lisens for Office365 og må derfor om ønskelig kjøpes i tillegg, enten som frittstående lisens eller bundlet som en del av Enterprise Mobility Suite (EMS), som inkluderer blant annet Intune (Mobile Device Management).<p>
+					<p>For Office 365 vil Azure AD Premium utvidet funksjonalitet i forhold til:<p>
+					<ul>
+  						<li>Multi Factor Authentication - https://azure.microsoft.com/nb-no/documentation/articles/multi-factor-authentication-how-it-works/#feature-comparison-of-versions</li>
+  						<li>Conditional access</li>
+  						<ul>
+  							<li>https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access/</li>
+  							<li>https://blogs.technet.microsoft.com/enterprisemobility/2016/06/23/azuread-conditional-access-for-office365-exchange-sharepoint-in-preview/ </li>
+						</ul>
+  						<li>Rights Management Services - https://technet.microsoft.com/nb-no/dn858608</li>
+					</ul>
+					<p>Funksjonalitet som kan være interessant for utvalgte Office 365 brukere med høye sikkerhetskrav.<p>
+				</div>
 
 			</div>
 			
