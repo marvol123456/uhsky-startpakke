@@ -135,7 +135,6 @@ slug: office365
 
 				<div class="bs-docs-section">
 					<p>Provisjonering av brukere til Office 365 vil si å ”speile” en lokal brukerdatabase til Office 365 sin brukerdatabase AzureAD, slik at Office 365 får brukerobjekt med attributter som gjenspeiler brukerne som er tenkt å logge på.<p>
-					<p><a href="https://jaapwesselius.com/2015/05/06/manage-domains-in-office-365-using-powershell/">https://jaapwesselius.com/2015/05/06/manage-domains-in-office-365-using-powershell/</a><p>
 				</div>
 				
 				<h3 id="admin" class="page-header">Klargjøring / vasking av lokal Active Directory (AD)</h3>
@@ -178,7 +177,7 @@ slug: office365
   						<li>Skal være på formen «brukernavn@domene»</li>
   						<li>Forutsetter at «Knyttning til institusjonens domene» er utført</li>
 					</ul>
-					<p>«Direkte SAML2.0 AzureAD -> FEIDE føderert pålogging» forutsetter at UPN (UserPrincipalName) settes lik FEIDE eduPersonPrincipalName (https://www.feide.no/attribute/edupersonprincipalname)<p>
+					<p>«Direkte SAML2.0 AzureAD -> FEIDE føderert pålogging» forutsetter at UPN (UserPrincipalName) settes lik FEIDE eduPersonPrincipalName (<a href="https://www.feide.no/attribute/edupersonprincipalname">https://www.feide.no/attribute/edupersonprincipalname</a>)<p>
 					<p>Se AzureAD brukernavn avgrensninger:<p>
 					<p><a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-policy/">https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-policy/</a><p>
 				</div>
@@ -188,6 +187,34 @@ slug: office365
 				<div class="bs-docs-section">
 					<p>Azure AD Connect er det anbefalte verktøyet å benytte til å provisjonere brukere til Azure AD (Office365). <p>
 					<p><a href="https://azure.microsoft.com/nb-no/documentation/articles/active-directory-aadconnect/">https://azure.microsoft.com/nb-no/documentation/articles/active-directory-aadconnect/</a><p>
+				</div>
+				
+				<h2 id="admin" class="page-header">Automatisering av konfigurasjon i Office 365</h2>
+
+				<div class="bs-docs-section">
+					<p>I et større produksjonsmiljø vil det være behov for å automatisere konfigurering av elementer i Office 365. Typisk vil det kunne dreie seg om:<p>
+					<ul>
+  						<li>Tilordne lisenser til provisjonerte brukere</li>
+  						<li>Aktivere arkivering på brukernivå</li>
+  						<li>Sette språkinnstillinger på brukernivå</li>
+					</ul>
+					<p>Dette kan oppnås på flere måter:<p>
+					<ul>
+  						<li><a href="https://gallery.technet.microsoft.com/Office365-License-cfd9489c">https://gallery.technet.microsoft.com/Office365-License-cfd9489c</a></li>
+  						<ul>
+  							<li>Ikke automatisert</li>
+  							<li>Håndterer kun lisenstildeling</li>
+						</ul>
+  						<li>Lage PowerShell script som scheduleres til å kjøre på lokal server</li>
+  						<li>Bruk av 3 parts programvare (.Net Internals)</li>
+  						<li>Azure Automation</li>
+					</ul>
+					<p>Beskrivelse på hvordan en kan benytte ”Azure Automation” finnes her:<p>
+					<p><a href="https://azure.microsoft.com/nb-no/services/automation/">https://azure.microsoft.com/nb-no/services/automation/</a><p>
+					<p>"Azure Automation" gir en høytilgjengelig platform spesiallaget for kjøring av PowerShell script. En fordel med å benytte «Azure Automation», fremfor å lage et lokalt powershell script som kjøres jevnlig, er at du her slipper å skrive inn passord i klartekst i scriptet, noe som ikke er optimalt.<p>
+					<p>Denne metoden forutsetter lisens/tilgang til Microsoft sin sky-tjeneste «Azure». Dette er ikke en del av Office 365 lisensen.<p>
+					<p><a href="https://github.com/UNINETT/azure/blob/master/modules/azure_automation_accounts.md">https://github.com/UNINETT/azure/blob/master/modules/azure_automation_accounts.md</a><p>
+																				
 				</div>
 
 			</div>
