@@ -86,6 +86,45 @@ slug: office365
 					<p><a href="https://securescore.office.com/">https://securescore.office.com/</a><p>
 				</div>
 
+				<h3 id="kravspesifikasjon" class="page-header">To-faktor autentisering</h3>
+			
+				<div class="bs-docs-section">
+					<p>Mulighet til to-faktor autentisering (MFA – Multi-Factor Authentication) er inkludert i Office 365 og kan aktiveres per bruker. Dette fungerer sammen med FEIDE-pålogging. Det vil være anbefalt å aktivere to-faktor autentisering for brukere med Office 365 rollen «Global Administrator».<p>
+					<p><a href="https://support.office.com/en-us/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6">https://support.office.com/en-us/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6</a><p>
+				</div>
+
+				<h3 id="kravspesifikasjon" class="page-header">Information Rights Management (IRM)</h3>
+			
+				<div class="bs-docs-section">
+					<p>Azure Information Protection - AIP (Tidligere Rights Management - RMS) er en løsning for å beskytte informasjon (IRM) i organisasjoner som har behov for å samhandle. Det være seg intern eller ekstern (med andre organisasjoner) samhandling.<p>
+					<p>Ansatte deler sensitiv informasjon med viktige samarbeidspartnere ved bruk av e-post og nettskytjenester. BYOD (Bring your own device) gjør at ansatte alltid har tilgang til bedriftens data. På jobb, hjemme og «i farta». I disse scenariene har tradisjonelle sikkerhetskontroller (for eksempel brannmurer og operativsystem rettigheter) begrenset effektivitet hvis du ønsker å beskytte bedriftens data, samtidig som du ønsker at ansatte skal kunne arbeide effektivt.<p>
+					<p><a href="https://docs.microsoft.com/en-us/information-protection/">https://docs.microsoft.com/en-us/information-protection/</a><p>
+					<p><a href="https://www.microsoft.com/en-us/cloud-platform/azure-information-protection">https://www.microsoft.com/en-us/cloud-platform/azure-information-protection</a><p>
+					<p>Se WhitePaper om Azure RMS:<p>
+					<p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=40333">https://www.microsoft.com/en-us/download/details.aspx?id=40333</a><p>
+					<p>Begrepsforvirring: IRM og RMS/AIP er i praksis et akronym/forkortelse for det samme. Ofte vil en se IRM bli brukt i Office 365 (https://docs.microsoft.com/en-us/information-protection/understand-explore/aka).<p>
+					<p>Vær oppmerksom på at all data er kryptert «at rest» i OneDrive og SharePoint Online uavhengig av om IRM/RMS er aktivert eller ikke:<p>
+					<p>https://technet.microsoft.com/en-us/library/dn905447.aspx<p>
+					<p>IRM/RMS har først sin funksjon når dokumenter/data flyttes ut av Office 365 og/eller deles med andre personer (i eller utenfor egen organisasjon).<p>
+					<p><b>Office 365 inkluderer RMS/AIP funksjonalitet:</b><p>
+					<p>https://technet.microsoft.com/nb-no/dn858608<p>
+					<p>https://www.microsoft.com/en-us/cloud-platform/azure-information-protection-features<p>
+					<p>For å kunne utnytte all funksjonalitet i AIP vil det være behov for å kjøpe ekstra lisenser. Enten som frittstående lisens, som en del av Azure AD Premium eller som en del av Enterprise Mobility Suite (EMS).<p>
+					<p>Vær oppmerksom på at Office Online (Word, Excel, PowerPoint Online) ikke har funksjonalitet for å håndtere IRM eller passordbeskyttelse.<p>
+					<p>https://support.office.com/en-us/article/Differences-between-using-a-document-in-the-browser-and-in-Word-3e863ce3-e82c-4211-8f97-5b33c36c55f8?ui=en-US&rs=en-US&ad=US<p>
+					<p>Dersom IRM aktiveres på et SharePoint Online TeamSite dokument-bibliotek eller på et personlig OneDrive For Business lagringsområde, vil en ikke kunne høyreklikke i nettleseren og lage et nytt Word, Excel eller PowerPoint dokument. Office Online kan vise dokumenter som ligger i SharePoint dokument bibliotek med IRM beskyttelse, men dokumentene må opprettes/redigeres i Office Desktop applikasjonene. Unntak er dersom du IRM beskytter et dokument ved bruk av RMS desktopapplikasjonen (2.2.2.2) og laster opp dokumentet i et OneDrive/SharePoint dokument bibliotek. Da vil du ikke kunne lese dokumentet med Office Online. Vær også oppmerksom på at det ikke er supportert å flytte dokumenter mellom forskjellige SharePoint dokumentbibliotek med IRM beskyttelse aktivert.<p>
+				</div>
+				
+				<h4 id="kravspesifikasjon" class="page-header">SharePoint Online</h4>
+
+				<div class="bs-docs-section">
+					<p>For å ta i bruk IRM beskyttelse må du først sette opp «Rights Management». SharePoint Online er avhengig av Microsoft Active Directory Rights Management (Microsoft Azure AD RMS) tjenesten for å kryptere og tildele bruksbegrensninger.<p>
+					<p>Fra Administrator modulen i Office 365 velge Administrasjonssentre -> SharePoint -> Innstillinger -> IRM (Information Rights Management) -> Bruk IRM-tjenesten som er angitt i konfigurasjonen.<p>
+					<img src="../screenshot/kap2_sharepoint-irm1.jpg" style="width:1576px;height:103px;">
+					<p><a href="https://support.office.com/en-us/article/Set-up-Information-Rights-Management-IRM-in-SharePoint-admin-center-239ce6eb-4e81-42db-bf86-a01362fed65c">https://support.office.com/en-us/article/Set-up-Information-Rights-Management-IRM-in-SharePoint-admin-center-239ce6eb-4e81-42db-bf86-a01362fed65c</a><p>
+
+				</div>
+
 
 			</div>
 			
