@@ -215,6 +215,100 @@ slug: office365
 					<p>Denne metoden forutsetter lisens/tilgang til Microsoft sin sky-tjeneste «Azure». Dette er ikke en del av Office 365 lisensen.<p>
 					<p><a href="https://github.com/UNINETT/azure/blob/master/modules/azure_automation_accounts.md">https://github.com/UNINETT/azure/blob/master/modules/azure_automation_accounts.md</a><p>														
 				</div>
+				
+				<h2 id="admin" class="page-header">Føderert pålogging ved bruk av FEIDE</h2>
+
+				<div class="bs-docs-section">
+					<p>En kan oppnå føderert pålogging ved bruk av FEIDE på flere måter:<p>
+					<ul>
+  						<li>Direkte SAML2.0 tilkobling mellom AzureAD og FEIDE</li>
+  						<li>Oppsett av ADFS server(e). Kan settes opp lokalt eller i skya som VM'er</li>
+  						<li>UH-AD sin ADFS løsning</li>
+					</ul>
+				</div>
+				
+				<h3 id="admin" class="page-header">Direkte SAML2.0 AzureAD -> FEIDE</h3>
+				
+				<div class="bs-docs-section">
+					<p>Dersom en ikke har noe Microsoftkompetanse i egen organisasjon eller ikke ønsker/trenger ADFS som en ekstra komponent mellom AzureAD og FEIDE kan direkte kobling mellom AzureAD og FEIDE være en løsning. Dette er på nåværende tidspunkt en pilot-tjeneste som testes i UNINETT.<p>
+					<p>Forutsetninger er:<p>
+					<ul>
+  						<li>«Knytning til institusjonens domene»</li>
+  						<li>«ImmutableID / SourceAnchor»</li>
+  						<li>«Valg av UserPrincipalName (UPN)»</li>
+					</ul>
+					<p>Kontakt rune.myrhaug@uninett.no dersom dette er interessant for din institusjon.<p>
+				</div>
+				
+				<h3 id="admin" class="page-header">Lokal ADFS</h3>
+				
+				<div class="bs-docs-section">
+					<p>Dette er den mest brukte løsningen for oppsett av føderert pålogging ved bruk av FEIDE i UH-Sektoren per i dag. Oppsett og installasjon av en lokal ADFS løsning vil kreve lokal kompetanse på Microsoft AD/ADFS i egen organisasjon og/eller benytte bistand fra konsulentselskap.<p>
+					<p>I et produksjonsmiljø, med behov for høy tilgjengelighet, vil en ADFS implementasjon medføre behov for 2 x ADFS server + 2 x Web Application Proxy servere.<p>
+					<p>Dette kan for eksempel settes opp i Azure:<p>
+					<p><a href="https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-azure-adfs">https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-azure-adfs</a><p>
+					<p>Eller en kan sette opp lokale VM’er/Servere til dette formålet.<p>
+					<p>Guide på installasjon av ADFS:<p>
+					<ul>
+  						<li><a href="http://blogs.technet.com/b/rmilne/archive/2014/04/28/how-to-install-adfs-2012-r2-for-office-365.aspx">http://blogs.technet.com/b/rmilne/archive/2014/04/28/how-to-install-adfs-2012-r2-for-office-365.aspx</a></li>
+  						<li><a href="https://technet.microsoft.com/en-us/windows-server-docs/identity/active-directory-federation-services">https://technet.microsoft.com/en-us/windows-server-docs/identity/active-directory-federation-services</a></li>
+					</ul>
+					<p>For å få FEIDE pålogging vil en ha behov for å legge inn «idp.feide.no» som en ekstra «Claims Provider Trust».<p>
+					<p>Kontakt kontakt@uninett.no for å få satt opp nødvendig konfigurasjon på FEIDE-siden.<p>
+					<p><b>Federation metadata address (host name or URL):</b><p>
+					<p><a href="https://idp.feide.no/simplesaml/saml2/idp/metadata.php/FederationMetadata/2007-06/FederationMetadata.xml">https://idp.feide.no/simplesaml/saml2/idp/metadata.php/FederationMetadata/2007-06/FederationMetadata.xml</a><p>
+					<p>Endre «Secure hash algorithm» til «SHA-1» (Open Properties -> Advanced)<p>
+					<p>På denne «Claims Provider Trust»’en konfigurere opp Claim-Rules for å matche FEIDE attributter med AD attributter.<p>
+					
+					{% highlight json %}
+eduPersonPrincipalName -> UPN
+c:[Type == "eduPersonPrincipalName"]
+ => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn", Value = c.Value);
+					{% endhighlight %}
+					
+					{% highlight json %}
+mail -> emailaddress
+c:[Type == "mail"]
+ => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress", Value = c.Value);
+					{% endhighlight %}
+					
+					<p><a href="http://social.technet.microsoft.com/wiki/contents/articles/4792.understanding-claim-rule-language-in-ad-fs-2-0-higher.aspx">http://social.technet.microsoft.com/wiki/contents/articles/4792.understanding-claim-rule-language-in-ad-fs-2-0-higher.aspx</a><p>
+					
+					
+				</div>
+				
+				<h3 id="admin" class="page-header">UH-AD ADFS</h3>
+
+				<div class="bs-docs-section">
+					<p>IT-Avdelingen ved Universitetet i Oslo (USIT) leverer UH-AD som en fellestjeneste til sektoren. Gjennom tilkoblet ADFS til UH-AD leveres føderert pålogging ved bruk av FEIDE som en tjeneste.<p>
+					<p><a href="https://www.feide.no/tilgjengelige-tjenester?id=2037820">https://www.feide.no/tilgjengelige-tjenester?id=2037820</a><p>
+					<p><a href="https://www.uninett.no/uh-ad">https://www.uninett.no/uh-ad</a><p>
+				</div>
+
+				<h3 id="admin" class="page-header">Smartlink</h3>
+
+				<div class="bs-docs-section">
+					<p>Istedenfor å gå til URL https://portal.office.com, for så å skrive inn ditt brukernavn, for så å bli videresendt til føderert pålogging, er det mer naturlig å skrive inn en URL som tar deg direkte til føderert pålogging (eller inn i O365 dersom du allerede er pålogget).<p>
+					<p>Overordnet fungerer SmartLink slik:<p>
+					<ul>
+  						<li>Bruker skriver inn en URL, for eksempel http://o365.<institusjon>.no</li>
+  						<li>DNS inneholder et A record (eller CNAME) som videresender o365.<institusjon>.no til en web-tjener som er satt opp</li>
+  						<li>Denne web-tjeneren inneholder igjen en 302 redirect til din institusjons URL for innlogging til portal.office.com via FEIDE.</li>
+					</ul>
+					<p>Dersom en følger beskrivelse for oppsett av «Direkte SAML2.0 AzureAD -> FEIDE» gjør følgende:<p>
+					<ul>
+  						<li>Denne beskrivelsen tar utgangspunkt i at du har tilgang til en Azure Subscription med mulighet til å opprette en «Azure App Service». Dersom du ikke har dette er det mulig å publisere til en IIS</li>
+					</ul>
+					<p><a href="https://github.com/UNINETT/office365/blob/master/documentation/o365-smartlink.md">https://github.com/UNINETT/office365/blob/master/documentation/o365-smartlink.md</a><p>
+					<p>Bytt ut redirectUrl definert i:<p>
+					<p><a href="https://github.com/UNINETT/office365/blob/master/code/o365SmartLink/src/o365SmartLink/Startup.cs">https://github.com/UNINETT/office365/blob/master/code/o365SmartLink/src/o365SmartLink/Startup.cst</a><p>
+					<p>Der uninett.no byttes ut med ditt domene.<p>
+					<p>Ved bruk av annen føderert påloggingsmekanisme (Slik som ADFS) se for eksempel:<p>
+					<ul>
+  						<li><a href="http://www.nimbus365.co.uk/office-365-sso-with-adfs-and-smart-links/">http://www.nimbus365.co.uk/office-365-sso-with-adfs-and-smart-links/</a></li>
+  						<li><a href="https://blog.kloud.com.au/2012/10/12/office-365-smart-links/">https://blog.kloud.com.au/2012/10/12/office-365-smart-links/</a></li>
+					</ul>
+				</div>
 
 			</div>
 			
