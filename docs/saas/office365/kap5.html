@@ -37,9 +37,9 @@ slug: office365
 				<h3 id="admin" class="page-header">Valg av tenantnavn</h3>
 
 				<div class="bs-docs-section">
-					<p>Når en ny Office 365 tenant (også av noen benevnt ”instans”) lages vil denne få tildelt et unikt domenenavn på formen <tenant>.onmicrosoft.com.<p>
+					<p>Når en ny Office 365 tenant (også av noen benevnt ”instans”) lages vil denne få tildelt et unikt domenenavn på formen &lt;tenant&gt;.onmicrosoft.com.<p>
 					<p>Det er viktig å bemerke seg at Microsoft ikke per i dag har noen support for å endre tenant-navn. Det er derfor lurt å tenke grundig igjennom hvilket tenant navn som er ønskelig. Dette tenant-navnet vil for eksempel bli synlig i alle SharePoint Online URL`er.<p>
-					<p>Eksempelvis dersom en tenant med navn ”stud<institusjon>.onmicrosoft.com” lages vil en være bundet til dette navnet også dersom en på et senere tidspunkt finner ut at ansatte skal benytte samme tenant som studentene.<p>
+					<p>Eksempelvis dersom en tenant med navn ”stud&lt;institusjon&gt;.onmicrosoft.com” lages vil en være bundet til dette navnet også dersom en på et senere tidspunkt finner ut at ansatte skal benytte samme tenant som studentene.<p>
 					<p>Bedrifter, kommuner og institusjoner fusjoneres/endrer navn sett over et lengre tidsperspektiv. Sett i lys av dette kan en vurdere å opprette en tenant med et tenantnavn som er «uavhengig» av institusjonsnavnet, for å potensielt unngå å havne ut med et tenantnavn som ikke stemmer.<p>
 				</div>
 				
@@ -260,13 +260,13 @@ slug: office365
 					<p>Endre «Secure hash algorithm» til «SHA-1» (Open Properties -> Advanced)<p>
 					<p>På denne «Claims Provider Trust»’en konfigurere opp Claim-Rules for å matche FEIDE attributter med AD attributter.<p>
 					
-					{% highlight json %}
+					{% highlight plain %}
 eduPersonPrincipalName -> UPN
 c:[Type == "eduPersonPrincipalName"]
  => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn", Value = c.Value);
 					{% endhighlight %}
 					
-					{% highlight json %}
+					{% highlight plain %}
 mail -> emailaddress
 c:[Type == "mail"]
  => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress", Value = c.Value);
@@ -291,7 +291,7 @@ c:[Type == "mail"]
 					<p>Istedenfor å gå til URL https://portal.office.com, for så å skrive inn ditt brukernavn, for så å bli videresendt til føderert pålogging, er det mer naturlig å skrive inn en URL som tar deg direkte til føderert pålogging (eller inn i O365 dersom du allerede er pålogget).<p>
 					<p>Overordnet fungerer SmartLink slik:<p>
 					<ul>
-  						<li>Bruker skriver inn en URL, for eksempel http://o365.<institusjon>.no</li>
+  						<li>Bruker skriver inn en URL, for eksempel http://o365.&lt;institusjon&gt;.no</li>
   						<li>DNS inneholder et A record (eller CNAME) som videresender o365.<institusjon>.no til en web-tjener som er satt opp</li>
   						<li>Denne web-tjeneren inneholder igjen en 302 redirect til din institusjons URL for innlogging til portal.office.com via FEIDE.</li>
 					</ul>
