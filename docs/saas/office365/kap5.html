@@ -307,11 +307,7 @@ c:[Type == "mail"]
   						<li><a href="https://blog.kloud.com.au/2012/10/12/office-365-smart-links/">https://blog.kloud.com.au/2012/10/12/office-365-smart-links/</a></li>
 					</ul>
 				</div>
-				
-				<div class="bs-callout bs-callout-danger" id="">
-		 			<h4>ToDo</h4>
-				</div>
-				
+								
 				<h2 id="admin" class="page-header">Backup / Arkivering</h2>
 				
 				<div class="bs-docs-section">
@@ -326,8 +322,6 @@ c:[Type == "mail"]
 					<p>Office 365-grupper er en funksjon som er utviklet med samarbeid i tankene. Standarden er at alle brukere kan opprette grupper etter eget ønske. Dette kan føre med seg uheldige konsekvenser i et større produksjonsmiljø. For eksempel kan personer lage grupper med gruppenavn som det er ønskelig å reservere til mer kontrollerte/formelle formål. Det finnes derfor en rekke mekanismer for å kontrollere oppretting av Office 365 Grupper.<p>
 					<p><a href="https://blogs.office.com/2016/06/13/whats-new-in-office-365-groups-administration-june-2016-update/">https://blogs.office.com/2016/06/13/whats-new-in-office-365-groups-administration-june-2016-update/</a><p>
 				</div>
-				
-				
 				
 				<h3 id="admin" class="page-header">Kontrollere hvem som kan opprette O365 grupper</h3>
 				
@@ -373,6 +367,10 @@ c:[Type == "mail"]
 					<p><a href="https://graph.microsoft.io/en-us/">https://graph.microsoft.io/en-us/</a><p>
 				</div>
 				
+				<div class="bs-callout bs-callout-danger" id="">
+		 			<h4>Her kommer mer innhold...</h4>
+				</div>
+				
 				<h2 id="admin" class="page-header">Moduler</h2>
 				
 				<p>
@@ -388,13 +386,49 @@ c:[Type == "mail"]
 				
 				<h2 id="admin" class="page-header">Office 365 Security & Compliance Center</h2>
 				
-				<p>
+				<div class="bs-docs-section">
+					<p>«Office 365 Security & Compliance Center» er en portal som kan benyttes av Office 365 Administratorer til å beskytte og kontrollere data i Office 365.<p>
+					<p><a href="https://protection.office.com/#/homepage">https://protection.office.com/#/homepage</a><p>
+					<p>Support/dokumentasjon:<p>
+					<p><a href="https://support.office.com/en-us/article/Security-and-Compliance-in-Office-365-for-business-Admin-Help-7fe448f7-49bd-4d3e-919d-0a6d1cf675bb?ui=en-US&rs=en-US&ad=US">https://support.office.com/en-us/article/Security-and-Compliance-in-Office-365-for-business-Admin-Help-7fe448f7-49bd-4d3e-919d-0a6d1cf675bb?ui=en-US&rs=en-US&ad=US</a><p>
+				</div>
 				
 				<h2 id="admin" class="page-header">Kontroll på endringer</h2>
 				
-				<p>
+				<div class="bs-docs-section">
+					<p>Microsoft videreutvikler Office 365 kontinuerlig og det vil derfor være behov for å følge med på de endringene Microsoft implementerer / planlegger å implementere i Office 365. Microsoft har en rekke kommunikasjonskanaler de bruker for å informere om endringer:<p>
+					<ul>
+  						<li><a href="https://fasttrack.office.com/roadmap">https://fasttrack.office.com/roadmap</a></li>
+  						<li><a href="https://blogs.office.com/">https://blogs.office.com/</a></li>
+  						<li><a href="https://network.office.com/">https://network.office.com/</a></li>
+  						<li><a href="https://portal.office.com/messagecenter/messagecenter.aspx">https://portal.office.com/messagecenter/messagecenter.aspx</a></li>
+					</ul>
+					<p>I tillegg til å følge med på disse kommunikasjonskanalene bør det gjøres et valg i forhold til hvilken «Release versjon» en skal ta i bruk. Det finnes to typer «Release versjoner» i Office 365:<p>
+					<ul>
+  						<li>First Release – Her kommer nye oppdateringer først.</li>
+  						<li>Standard Release – Her kommer oppdateringer senere.</li>
+					</ul>
+					<p>Innenfor en tenant er det mulig å velge ut brukere som skal ha «First Release Option», mens resten av brukerene skal ha «Standard Release». Eller en kan velge å sette dette globalt på tenant nivå.<p>
+					<p>Anbefaling vil være å benytte «Standard Release» i produksjons-tenanten. Videre bør en vurdere å opprette en demo/test-tenant der «First Release» er skrudd på enten globalt eller på enkelte brukere.<p>
+					<p>For implementering se:<p>
+					<p><a href="https://support.office.com/en-us/article/Office-365-release-options-3b3adfa4-1777-4ff0-b606-fb8732101f47?ui=en-US&rs=en-US&ad=US">https://support.office.com/en-us/article/Office-365-release-options-3b3adfa4-1777-4ff0-b606-fb8732101f47?ui=en-US&rs=en-US&ad=US</a><p>
+				</div>
 				
 				<h2 id="admin" class="page-header">Begrensninger</h2>
+
+				<div class="bs-docs-section">
+					<p>Forskjellige moduler i Office 365 har tekniske begrensninger/grenseverdier som en bør være kjent med. Dette kan gå på begrensninger i forhold til for eksempel maksimum lagringsmengde og maksimum antall elementer som kan lagres/opprettes. Disse begrensningene kan også være forskjellig mellom forskjellige typer Office 365 lisenser. Kapittel 6 i Advania dokumentet lister opp et utvalg av grenseverdier:<p>
+					<p><a href="http://startpakke.uhsky.no/docs/saas/office365/documents/Office_365-Arbeidsdokument_2_Design_og_anbefalinger_v1.4_(004).pdf">http://startpakke.uhsky.no/docs/saas/office365/documents/Office_365-Arbeidsdokument_2_Design_og_anbefalinger_v1.4_(004).pdf</a><p>
+					<p>Slike grenseverdier endrer seg over tid og en bør derfor selv sjekke/verifisere de grenseverdiene en synes er viktig å ha et forhold til.<p>
+					<p>Skype for Business Online:<p>
+					<p><a href="https://technet.microsoft.com/nb-no/library/skype-for-business-online-limits.aspx">https://technet.microsoft.com/nb-no/library/skype-for-business-online-limits.aspx</a><p>
+					<p>Exchange Online:<p>
+					<p><a href="https://technet.microsoft.com/en-us/library/exchange-online-limits.aspx">https://technet.microsoft.com/en-us/library/exchange-online-limits.aspx</a><p>
+					<p>SharePoint Online:<p>
+					<p><a href="https://support.office.com/en-us/article/SharePoint-Online-software-boundaries-and-limits-8F34FF47-B749-408B-ABC0-B605E1F6D498?ui=en-US&rs=en-US&ad=US">https://support.office.com/en-us/article/SharePoint-Online-software-boundaries-and-limits-8F34FF47-B749-408B-ABC0-B605E1F6D498?ui=en-US&rs=en-US&ad=US</a><p>
+					<p>Office 365 Video:<p>
+					<p><a href="https://www.yammer.com/itpronetwork/#/Threads/show?threadId=696804199">https://www.yammer.com/itpronetwork/#/Threads/show?threadId=696804199</a><p>
+				</div>
 
 			</div>
 			
