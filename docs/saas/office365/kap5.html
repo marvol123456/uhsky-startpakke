@@ -114,7 +114,7 @@ slug: office365
 					
 					<img src="../screenshot/kap5_add-domain2.jpg" style="width:1277px;height:839px;">
 					
-					<p>Skriv inn domene du ønsker å knytte til Office 365, for eksempel <institusjon>.no -> Kikk Neste<p>
+					<p>Skriv inn domene du ønsker å knytte til Office 365, for eksempel &lt;institusjon&gt;.no -> Klikk Neste<p>
 					
 					<img src="../screenshot/kap5_add-domain3.jpg" style="width:1341px;height:836px;">
 					
@@ -309,21 +309,69 @@ c:[Type == "mail"]
 				</div>
 				
 				<div class="bs-callout bs-callout-danger" id="">
-		 			<h4>Mer innhold kommer</h4>
-		 			<p>Om...</p>
+		 			<h4>ToDo</h4>
 				</div>
 				
 				<h2 id="admin" class="page-header">Backup / Arkivering</h2>
 				
-				<p>
+				<div class="bs-docs-section">
+					<p>Slettede elementer ligger i papirkurven i 30 dager og blir deretter fjernet permanent hos Microsoft. Dette må sees mer på som en disaster recovery løsning enn backup. Det finnes tredjepartsprodukter dersom man ønsker en mer fullverdig backupløsning. Eksempler på leverandører er Veeam, Cloudfinder, Spanning (Dell EMC) og AvePoint.<p>
+					<p><b>Arkivering:</b><p>
+					<p><a href="https://technet.microsoft.com/en-us/library/dn790612.aspx">https://technet.microsoft.com/en-us/library/dn790612.aspx</a><p>
+				</div>
 				
 				<h2 id="admin" class="page-header">Office 365 grupper</h2>
 
-				<p>
+				<div class="bs-docs-section">
+					<p>Office 365-grupper er en funksjon som er utviklet med samarbeid i tankene. Standarden er at alle brukere kan opprette grupper etter eget ønske. Dette kan føre med seg uheldige konsekvenser i et større produksjonsmiljø. For eksempel kan personer lage grupper med gruppenavn som det er ønskelig å reservere til mer kontrollerte/formelle formål. Det finnes derfor en rekke mekanismer for å kontrollere oppretting av Office 365 Grupper.<p>
+					<p><a href="https://blogs.office.com/2016/06/13/whats-new-in-office-365-groups-administration-june-2016-update/">https://blogs.office.com/2016/06/13/whats-new-in-office-365-groups-administration-june-2016-update/</a><p>
+				</div>
 				
-				<h2 id="admin" class="page-header">API</h2>
+				
+				
+				<h3 id="admin" class="page-header">Kontrollere hvem som kan opprette O365 grupper</h3>
+				
+				<div class="bs-callout bs-callout-danger" id="">
+		 			<h4>ToDo</h4>
+				</div>
+				
+				<h3 id="admin" class="page-header">Prefiks</h3>
+				
+				<div class="bs-docs-section">
+					<p>Dersom det tillates at hvem som helst skal kunne opprette en O365 gruppe vil det ofte være ønskelig å sette en prefiks på gruppenavnene som lages (adhoc), for å unngå at grupper lages med gruppenavn som det er ønskelig å ha kontroll på.<p>
+					<p>Per 01.06.2016 er metoden for å styre dette ved bruk av «Create a distribution group name policy»<p>
+					<p><a href="https://technet.microsoft.com/en-us/library/jj218693(v=exchg.150).aspx">https://technet.microsoft.com/en-us/library/jj218693(v=exchg.150).aspx</a><p>
+					<p><a href="http://www.wictorwilen.se/office-365-groups-for-admins-group-creation-policies">http://www.wictorwilen.se/office-365-groups-for-admins-group-creation-policies</a><p>
+					<p>Denne metoden fungerer kun innenfor «Exchange Online». Det betyr at dersom for eksempel en gruppe blir opprettet i «Office 365 Planner» vil ikke denne gruppen få den satte prefiksen. Microsoft jobber med å få på plass «Naming policy in Azure Active Directory» som vil løse dette. <p>
+					<p><a href="https://thoughtsofanidlemind.com/2016/06/07/controlling-the-creation-of-office-365-groups-using-an-azure-active-directory-policy/">https://thoughtsofanidlemind.com/2016/06/07/controlling-the-creation-of-office-365-groups-using-an-azure-active-directory-policy/</a><p>
+				</div>
+				
+				<h3 id="admin" class="page-header">Multidomain</h3>
+				
+				<div class="bs-docs-section">
+					<p>Når en gruppe opprettes vil gruppen automatisk få tildelt en epostadresse på formen &lt;gruppenavn&gt;@&lt;tenant&gt;.onmicrosoft.com<p>
+					<p>Ofte vil det heller være ønskelig at grupper opprettes med for eksempel epostadresse på formen &lt;gruppenavn&gt;@gruppe.&lt;institusjon&gt;.no og kanskje er det ønskelig at studenter som oppretter grupper får epostadresse på form <gruppenavn>@gruppe.stud.<institusjon>.no, mens ansatte som oppretter grupper får epostadresse på formen <gruppenavn>@gruppe.<institusjon>.no<p>
+					<p><a href="https://support.office.com/en-us/article/Multi-domain-support-for-Office-365-Groups-Admin-help-7cf5655d-e523-4bc3-a93b-3ccebf44a01a">https://support.office.com/en-us/article/Multi-domain-support-for-Office-365-Groups-Admin-help-7cf5655d-e523-4bc3-a93b-3ccebf44a01a</a><p>
+				</div>
+				
+				<h3 id="admin" class="page-header">Dynamisk gruppetilhørighet</h3>
+				
+				<div class="bs-docs-section">
+					<p>AD attributter kan benyttes til å dynamisk tilordne brukere til Office 365 grupper:<p>
+					<p><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal">https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal</a><p>
+				</div>
 
-				<p>
+				<h3 id="admin" class="page-header">Mobile apper for grupper</h3>
+				
+				<div class="bs-docs-section">
+					<p>Mobile apper beregnet for grupper kan hentes fra: <a href="http://groups.outlook.com/">http://groups.outlook.com/</a><p>
+				</div>
+				
+				<h2 id="admin" class="page-header">Office 365 API</h2>
+
+				<div class="bs-docs-section">
+					<p><a href="https://graph.microsoft.io/en-us/">https://graph.microsoft.io/en-us/</a><p>
+				</div>
 				
 				<h2 id="admin" class="page-header">Moduler</h2>
 				
