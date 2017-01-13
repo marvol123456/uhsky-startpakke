@@ -10,6 +10,14 @@ slug: office365
 
 			<div class="col-md-8">
 
+				<style>
+					.fixed-ratio-resize { /* basic responsive img */
+					max-width: 100%;
+					height: auto;
+					width: auto\9; /* IE8 */
+					}
+				</style>
+
 				<h1 id="admin" class="page-header">O365 - Teknisk implementering</h1>
 				
 				<div class="bs-callout bs-callout-danger" id="">
@@ -70,7 +78,7 @@ slug: office365
 					<p><a href="https://azure.microsoft.com/nb-no/documentation/articles/active-directory-whatis/">https://azure.microsoft.com/nb-no/documentation/articles/active-directory-whatis/</a><p>
 					<p>Tilgang til AzureAD nås via Office 365 Administrator -> Administrasjonssentre -> Azure AD<p>
 					
-					<img src="../screenshot/kap5_azuread1.jpg" style="width:1269px;height:1017px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap5_azuread1.jpg" alt=""/>
 					
 					<p>Eller via PowerShell:<p>
 					<p><a href="https://msdn.microsoft.com/en-us/library/JJ151815.aspx">https://msdn.microsoft.com/en-us/library/JJ151815.aspx</a><p>
@@ -108,15 +116,15 @@ slug: office365
 				<div class="bs-docs-section">
 					<p>I «Administrator modulen» -> Innstillinger -> Domener<p>
 					
-					<img src="../screenshot/kap5_add-domain1.jpg" style="width:1276px;height:838px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap5_add-domain1.jpg" alt=""/>
 					
 					<p>Klikk «Legg til domene»<p>
 					
-					<img src="../screenshot/kap5_add-domain2.jpg" style="width:1277px;height:839px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap5_add-domain2.jpg" alt=""/>
 					
 					<p>Skriv inn domene du ønsker å knytte til Office 365, for eksempel &lt;institusjon&gt;.no -> Klikk Neste<p>
 					
-					<img src="../screenshot/kap5_add-domain3.jpg" style="width:1341px;height:836px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap5_add-domain3.jpg" alt=""/>
 					
 					<p>Sør så for å få lagt disse DNS innslagene inn under ditt DNS domene. I påvente av å få utført denne jobben kan du trykke «Lagre og Lukk». Når dette er aktivert i DNS kan du så åpne denne på nytt, klikk «Start Konfigurasjonen» -> Bekreft<p>
 					<p>En vil så bli guidet gjennom valgfrie steg for oppsett av slikt som ruting av mail til Office365 og Skype for Business. Her bør en ikke gjøre noe før en har planlagt dette mer i detalj.<p>
