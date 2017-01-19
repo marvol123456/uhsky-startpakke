@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Startpakke skytjenester - Office 365
-slug: office365
+slug: office365_kap5
 ---
 
 <div class="">
@@ -25,7 +25,7 @@ slug: office365
 		 			<p>Startpakke er under utvikling.</p>
 				</div>
 			
-				<h2 id="admin" class="page-header">On-Premises Hardware / VM</h2>
+				<h2 id="onprem_hw" class="page-header">On-Premises Hardware / VM</h2>
 			
 				<div class="bs-docs-section">
 					<p>Behov for on-premises hardware / VM’er i oppsett av Office 365 vil avhenge av flere faktorer:<p>
@@ -40,7 +40,7 @@ slug: office365
 					<p>Istedenfor å ta i bruk on-premises hardware / VM’er kan en vurdere å ta i bruk en public cloud (IaaS).<p>
 				</div>
 
-				<h2 id="admin" class="page-header">Oppretting av Office 365 tenant</h2>
+				<h2 id="o365_tenant" class="page-header">Oppretting av Office 365 tenant</h2>
 				
 				<h3 id="admin" class="page-header">Valg av tenantnavn</h3>
 
@@ -137,7 +137,7 @@ slug: office365
 					<p><a href="https://jaapwesselius.com/2015/05/06/manage-domains-in-office-365-using-powershell/">https://jaapwesselius.com/2015/05/06/manage-domains-in-office-365-using-powershell/</a><p>
 				</div>
 				
-				<h2 id="admin" class="page-header">Provisjonering av brukere til Office 365</h2>
+				<h2 id="provisjonering" class="page-header">Provisjonering av brukere til Office 365</h2>
 
 				<div class="bs-docs-section">
 					<p>Provisjonering av brukere til Office 365 vil si å ”speile” en lokal brukerdatabase til Office 365 sin brukerdatabase AzureAD, slik at Office 365 får brukerobjekt med attributter som gjenspeiler brukerne som er tenkt å logge på.<p>
@@ -195,7 +195,7 @@ slug: office365
 					<p><a href="https://azure.microsoft.com/nb-no/documentation/articles/active-directory-aadconnect/">https://azure.microsoft.com/nb-no/documentation/articles/active-directory-aadconnect/</a><p>
 				</div>
 				
-				<h2 id="admin" class="page-header">Automatisering av konfigurasjon i Office 365</h2>
+				<h2 id="automatisering" class="page-header">Automatisering av konfigurasjon i Office 365</h2>
 
 				<div class="bs-docs-section">
 					<p>I et større produksjonsmiljø vil det være behov for å automatisere konfigurering av elementer i Office 365. Typisk vil det kunne dreie seg om:<p>
@@ -222,7 +222,7 @@ slug: office365
 					<p><a href="https://github.com/UNINETT/azure/blob/master/modules/azure_automation_accounts.md">https://github.com/UNINETT/azure/blob/master/modules/azure_automation_accounts.md</a><p>														
 				</div>
 				
-				<h2 id="admin" class="page-header">Føderert pålogging ved bruk av FEIDE</h2>
+				<h2 id="federation" class="page-header">Føderert pålogging ved bruk av FEIDE</h2>
 
 				<div class="bs-docs-section">
 					<p>En kan oppnå føderert pålogging ved bruk av FEIDE på flere måter:<p>
@@ -316,7 +316,7 @@ c:[Type == "mail"]
 					</ul>
 				</div>
 								
-				<h2 id="admin" class="page-header">Backup / Arkivering</h2>
+				<h2 id="backup_and_archive" class="page-header">Backup / Arkivering</h2>
 				
 				<div class="bs-docs-section">
 					<p>Slettede elementer ligger i papirkurven i 30 dager og blir deretter fjernet permanent hos Microsoft. Dette må sees mer på som en disaster recovery løsning enn backup. Det finnes tredjepartsprodukter dersom man ønsker en mer fullverdig backupløsning. Eksempler på leverandører er Veeam, Cloudfinder, Spanning (Dell EMC) og AvePoint.<p>
@@ -324,7 +324,7 @@ c:[Type == "mail"]
 					<p><a href="https://technet.microsoft.com/en-us/library/dn790612.aspx">https://technet.microsoft.com/en-us/library/dn790612.aspx</a><p>
 				</div>
 				
-				<h2 id="admin" class="page-header">Office 365 grupper</h2>
+				<h2 id="o365_groups" class="page-header">Office 365 grupper</h2>
 
 				<div class="bs-docs-section">
 					<p>Office 365-grupper er en funksjon som er utviklet med samarbeid i tankene. Standarden er at alle brukere kan opprette grupper etter eget ønske. Dette kan føre med seg uheldige konsekvenser i et større produksjonsmiljø. For eksempel kan personer lage grupper med gruppenavn som det er ønskelig å reservere til mer kontrollerte/formelle formål. Det finnes derfor en rekke mekanismer for å kontrollere oppretting av Office 365 Grupper.<p>
@@ -369,7 +369,7 @@ c:[Type == "mail"]
 					<p>Mobile apper beregnet for grupper kan hentes fra: <a href="http://groups.outlook.com/">http://groups.outlook.com/</a><p>
 				</div>
 				
-				<h2 id="admin" class="page-header">Office 365 API</h2>
+				<h2 id="o365_api" class="page-header">Office 365 API</h2>
 
 				<div class="bs-docs-section">
 					<p><a href="https://graph.microsoft.io/en-us/">https://graph.microsoft.io/en-us/</a><p>
@@ -441,7 +441,7 @@ c:[Type == "mail"]
 					<p><p>Se kapittel 10 i <a href="/docs/saas/office365/documents/Office_365-Arbeidsdokument_2_Design_og_anbefalinger_v1.4_(004).pdf" target="_blank">UNINETT & Advania - Startpakke Office 365</a><p>
 				</div>
 				
-				<h2 id="admin" class="page-header">Office 365 Security & Compliance Center</h2>
+				<h2 id="security_compliance" class="page-header">Office 365 Security & Compliance Center</h2>
 				
 				<div class="bs-docs-section">
 					<p>«Office 365 Security & Compliance Center» er en portal som kan benyttes av Office 365 Administratorer til å beskytte og kontrollere data i Office 365.<p>
@@ -450,7 +450,7 @@ c:[Type == "mail"]
 					<p><a href="https://support.office.com/en-us/article/Security-and-Compliance-in-Office-365-for-business-Admin-Help-7fe448f7-49bd-4d3e-919d-0a6d1cf675bb?ui=en-US&rs=en-US&ad=US">https://support.office.com/en-us/article/Security-and-Compliance-in-Office-365-for-business-Admin-Help-7fe448f7-49bd-4d3e-919d-0a6d1cf675bb?ui=en-US&rs=en-US&ad=US</a><p>
 				</div>
 				
-				<h2 id="admin" class="page-header">Kontroll på endringer</h2>
+				<h2 id="changes" class="page-header">Kontroll på endringer</h2>
 				
 				<div class="bs-docs-section">
 					<p>Microsoft videreutvikler Office 365 kontinuerlig og det vil derfor være behov for å følge med på de endringene Microsoft implementerer / planlegger å implementere i Office 365. Microsoft har en rekke kommunikasjonskanaler de bruker for å informere om endringer:<p>
@@ -471,7 +471,7 @@ c:[Type == "mail"]
 					<p><a href="https://support.office.com/en-us/article/Office-365-release-options-3b3adfa4-1777-4ff0-b606-fb8732101f47?ui=en-US&rs=en-US&ad=US">https://support.office.com/en-us/article/Office-365-release-options-3b3adfa4-1777-4ff0-b606-fb8732101f47?ui=en-US&rs=en-US&ad=US</a><p>
 				</div>
 				
-				<h2 id="admin" class="page-header">Begrensninger</h2>
+				<h2 id="limitations" class="page-header">Begrensninger</h2>
 
 				<div class="bs-docs-section">
 					<p>Forskjellige moduler i Office 365 har tekniske begrensninger/grenseverdier som en bør være kjent med. Dette kan gå på begrensninger i forhold til for eksempel maksimum lagringsmengde og maksimum antall elementer som kan lagres/opprettes. Disse begrensningene kan også være forskjellig mellom forskjellige typer Office 365 lisenser. Kapittel 6 i Advania dokumentet lister opp et utvalg av grenseverdier:<p>
