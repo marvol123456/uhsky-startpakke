@@ -10,6 +10,14 @@ slug: office365_kap2
 
 			<div class="col-md-8">
 
+				<style>
+					.fixed-ratio-resize { /* basic responsive img */
+					max-width: 100%;
+					height: auto;
+					width: auto\9; /* IE8 */
+					}
+				</style>
+				
 				<h1 id="admin" class="page-header">O365 - Risiko-,sårbarhetsvurdering og beskyttelsestiltak</h1>
 				
 				<div class="bs-callout bs-callout-danger" id="">
@@ -72,7 +80,7 @@ slug: office365_kap2
 					<p>Dersom du ønsker å få en utskrift av databehandleravtalen til Office 365 finner du denne på Online Services Terms (OST). Logg på her og velg språk:<p>
 					<p><a href="http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31">http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31</a><p>
 					
-					<img src="../screenshot/kap2_db-avtale.jpg" style="width:691px;height:184px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap2_db-avtale.jpg" alt=""/>
 					
 					<p>Denne wordfilen som blir lastet ned er ferdig signert av Microsoft og du trenger ikke gjøre noe mer med Microsoft.<p>
 										
@@ -120,7 +128,7 @@ slug: office365_kap2
 				<div class="bs-docs-section">
 					<p>For å ta i bruk IRM beskyttelse må du først sette opp «Rights Management». SharePoint Online er avhengig av Microsoft Active Directory Rights Management (Microsoft Azure AD RMS) tjenesten for å kryptere og tildele bruksbegrensninger.<p>
 					<p>Fra Administrator modulen i Office 365 velge Administrasjonssentre -> SharePoint -> Innstillinger -> IRM (Information Rights Management) -> Bruk IRM-tjenesten som er angitt i konfigurasjonen.<p>
-					<img src="../screenshot/kap2_sharepoint-irm1.jpg" style="width:1576px;height:103px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap2_sharepoint-irm1.jpg" alt=""/>
 					<p><a href="https://support.office.com/en-us/article/Set-up-Information-Rights-Management-IRM-in-SharePoint-admin-center-239ce6eb-4e81-42db-bf86-a01362fed65c">https://support.office.com/en-us/article/Set-up-Information-Rights-Management-IRM-in-SharePoint-admin-center-239ce6eb-4e81-42db-bf86-a01362fed65c</a><p>
 
 				</div>
@@ -137,7 +145,7 @@ slug: office365_kap2
 					</ul>
 					<p>Når dette er laget i Innstillinger -> Innstillinger for bibliotek (Library settings) -> Tillatelser og behandling (Permissions and Management) -> Information Rights Management<p>
 					
-					<img src="../screenshot/kap2_sharepoint-irm2.jpg" style="width:959px;height:602px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap2_sharepoint-irm2.jpg" alt=""/>
 					
 					<p>Marker «Begrens tillatelser for dette biblioteket ved nedlasting» og sett ett navn og en beskrivelse. For eksempel «IRM_O365_TeamSite-<TeamSite-navn>», «IRM beskyttelse på TeamSite for <TeamSite-navn>»<p>
 
@@ -149,7 +157,7 @@ slug: office365_kap2
 					<p>Etter at IRM er aktivert av Office 365 Administrator i SharePoint administrasjonssenteret, kan hver bruker aktivere IRM på personlig OneDrive For Business lagringsområde.<p>
 					<p>I OneDrive For Business -> Innstillinger -> Nettstedinnstillinger<p>
 					
-					<img src="../screenshot/kap2_sharepoint-irm3.jpg" style="width:1120px;height:645px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap2_sharepoint-irm3.jpg" alt=""/>
 					
 					<p>Naviger til Områdeadministrasjon (Site Settings) -> Områdebibliotek og -lister (Site Libraries and lists) -> Tilpass «Dokumenter» (Customize «Documents») -> Tillatelser og behandling (Permissions and Management) -> IRM (Information Rights Management).<p>
 					<p>Marker «Begrens tillatelser for dette biblioteket ved nedlasting» og set ett navn og en beskrivelse. For eksempel «IRM_O365_User-<brukernavn>», «IRM beskyttelse på OneDrive for <brukernavn>»<p>
@@ -162,9 +170,9 @@ slug: office365_kap2
 					<p>For å beskytte enkeltfiler må RMS applikasjonen installeres:<p>
 					<p><a href="https://portal.aadrm.com/home/download">https://portal.aadrm.com/home/download</a><p>
 					<p>I Office applikasjonene vil en finne RMS under «Hjem»:<p>
-					<img src="../screenshot/kap2_rms_klient1.jpg" style="width:1315px;height:361px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap2_rms_klient1.jpg" alt=""/>
 					<p>Eller høyreklikk på fil du ønsker å beskytte:<p>
-					<img src="../screenshot/kap2_rms_klient2.jpg" style="width:755px;height:559px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap2_rms_klient2.jpg" alt=""/>
 				</div>
 				
 				<h4 id="kravspesifikasjon" class="page-header">Exchange Online</h4>
@@ -175,7 +183,7 @@ slug: office365_kap2
   						<li>Administrator -> Innstillinger -> Apper -> Microsoft Azure Rights Management -> Administrere Microsoft Azure Rights Management-innstillinger</li>
   						<li>Aktiver</li>
 					</ul>					
-					<img src="../screenshot/kap2_exchange-irm1.jpg" style="width:1378px;height:708px;">
+					<img class="fixed-ratio-resize" src="../screenshot/kap2_exchange-irm1.jpg" alt=""/>
 					<p><a href="https://docs.microsoft.com/nb-no/rights-management/deploy-use/activate-service">https://docs.microsoft.com/nb-no/rights-management/deploy-use/activate-service</a><p>
 					<p>Benytt deretter PowerShell til å aktivere IRM for Exchange Online:<p>
 					<p><a href="https://docs.microsoft.com/nb-no/rights-management/deploy-use/configure-office365">https://docs.microsoft.com/nb-no/rights-management/deploy-use/configure-office365</a><p>
