@@ -386,7 +386,27 @@ c:[Type == "mail"]
 				<h3 id="admin" class="page-header">OneDrive for Business</h3>
 				<h3 id="admin" class="page-header">SharePoint</h3>
 				<h3 id="admin" class="page-header">Delve</h3>
+				
+				<div class="bs-docs-section">
+					<p>Ved ønske om å disable/enable Delve, så kan dette gjøres globalt for tenant`en ved å fra Administrator modulen i Office 365 velge Administrasjonssentre -> SharePoint -> Innstillinger -> Office Graph -> Ikke tillat tilgang til Office Graph / Tillat tilgang til Office Graph<p>
+					<img class="fixed-ratio-resize" src="../screenshot/kap5_delve1.jpg" alt=""/>
+				</div>
+				
 				<h3 id="admin" class="page-header">Video</h3>
+				
+				<div class="bs-docs-section">
+					<p>Ved ønske om å disable/enable Office 365 Video, så kan dette gjøres globalt for tenant`en ved å fra Administrator modulen i Office 365 velge Administrasjonssentre -> SharePoint -> Innstillinger -> Kontroller om videoer lagres og strømmes fra Azure Media Services -> Deaktiver strømming av video via Azure Media Services, og deaktiver videoportalen / Aktiver strømming av video via Azure Media Services, og aktiver videoportalen.<p>
+					<img class="fixed-ratio-resize" src="../screenshot/kap5_video1.jpg" alt=""/>
+					<p>Tilgang til å opprette nye video-kanaler er standard tillatt for alle brukere i tenant`en. Normalt vill det være ønskelig å begrense dette til en gruppe eller utvalgte personer. Dette gjøres ved å åpne Video modulen > «Portal Settings», for så å justere innholdet i «Kanaladministratorer». Sikkerhetsgrupper eller enkeltbrukere kan legges inn her.<p>
+					<p>Office 365 Video benytter SharePoint Online som lagringsområde. Hver kanal som blir laget får opprettet en ny SharePoint Online Site Collection under stien https://<tenant-navn>.sharepoint.com/portals/<kanal-navn><p>
+					<p>Her er noen PowerShell moduler som kan benyttes til å sjekke og kontrollere Video lagring:<p>
+					<ul>
+  						<li><a href="https://gallery.technet.microsoft.com/office/How-To-Set-Channel-Storage-27d1786a">https://gallery.technet.microsoft.com/office/How-To-Set-Channel-Storage-27d1786a</a></li>
+  						<li><a href="https://gallery.technet.microsoft.com/office/How-To-Check-Channel-ac2a9b34">https://gallery.technet.microsoft.com/office/How-To-Check-Channel-ac2a9b34</a></li>
+					</ul>
+					<p>Notis: Stream vil erstatte Office 365 Video - <a href="https://blogs.office.com/2016/07/18/what-microsoft-stream-means-to-office-365/https://blogs.office.com/2016/07/18/what-microsoft-stream-means-to-office-365/">https://blogs.office.com/2016/07/18/what-microsoft-stream-means-to-office-365/https://blogs.office.com/2016/07/18/what-microsoft-stream-means-to-office-365/</a><p>
+				</div>
+				
 				<h3 id="admin" class="page-header">Skype for Business / UH-Skype</h3>
 				<h3 id="admin" class="page-header">Exchange Online</h3>
 				
