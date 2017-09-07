@@ -227,6 +227,10 @@ slug: office365_kap5
   						<li>Oppsett av ADFS server(e). Kan settes opp lokalt eller i skya som VM'er</li>
   						<li>UH-AD sin ADFS løsning</li>
 					</ul>
+
+					<p>Disse og flere alternativer finner en her:</p>
+					<p><a href="https://www.linkedin.com/pulse/office365-authentication-higher-education-norway-andreas-solberg">https://www.linkedin.com/pulse/office365-authentication-higher-education-norway-andreas-solberg</a><p>
+					
 				</div>
 				
 				<h3 id="admin" class="page-header">Direkte SAML2.0 AzureAD -> FEIDE</h3>
@@ -236,9 +240,20 @@ slug: office365_kap5
 					<p>Forutsetninger er:<p>
 					<ul>
   						<li>«Knytning til institusjonens domene»</li>
-  						<li>«ImmutableID / SourceAnchor»</li>
-  						<li>«Valg av UserPrincipalName (UPN)»</li>
+  						<li>«ImmutableID / SourceAnchor» - Det et krav om at ImmutableId settes lik FEIDE UID (Bruker-ID). Se <a href="https://innsyn.feide.no">https://innsyn.feide.no</a> for å finne dette. Bakgrunnen ligger i Microsoft sin implementering av SAML2.0 der de sier «<a href="https://msdn.microsoft.com/en-us/library/azure/dn641269.aspx">NameID - The value of this assertion must be the same as the Azure AD user’s ImmutableID</a>»</li>
+  						<li>«Valg av UserPrincipalName (UPN)» - UPN på brukere i AzureAD må settes lik FEIDE eduPersonPrincipalName – Se <a href="https://innsyn.feide.no">https://innsyn.feide.no</a> for å finne dette.</li>
 					</ul>
+					
+					<img class="fixed-ratio-resize" src="../screenshot/kap5_feidedirekte.jpg" alt=""/>
+
+					<div class="bs-callout bs-callout-info" id="">
+						<h4>Begrensninger</h4>
+						<p>Løsningen støtter ikke SAML ECP (Enhanced client or proxy)</p>
+						<p>Brukere som har mailklient som kun støtter POP/IMAP må aktivere MFA (Multifactor authentication), for å få tilgang til "application password" som de kan benytte for å konfigurere mailklienten.</p>
+						<p>Løsningen støtter ikke FEIDE initiert logout (SLO). Det vil si at en ikke fra FEIDE siden kan initiere en logout på Office 365.</p>
+						<p>Av pilotbrukere er det rapportert utfordringer rundt Active Sync.</p>
+					</div>
+
 					<p>Kontakt rune.myrhaug@uninett.no dersom dette er interessant for din institusjon.<p>
 				</div>
 				
