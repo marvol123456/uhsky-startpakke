@@ -246,15 +246,27 @@ slug: office365_kap5
 					
 					<img class="fixed-ratio-resize" src="../screenshot/kap5_feidedirekte.jpg" alt=""/>
 
+					<p>Når disse forutsettningene er implementert. Logg inn på <a href="https://kunde.feide.no">Feide kundeportal</a> for å finne din org-id.</p>
+					<p>Gå deretter til: https://proxy.feide.no/idp/\<org-id\>/azureconfig</p>
+					<p>Logg på din organisasjons Office 365 tenant med powershell og aktiver den konfigurasjonen du får listet ut på denne siden.</p>
+					<p>Når dette er gjort skal en etter en liten stund kunne logge på Office 365 ved bruk av FEIDE.</p>
+
 					<div class="bs-callout bs-callout-info" id="">
 						<h4>Begrensninger</h4>
-						<p>Løsningen støtter ikke SAML ECP (Enhanced client or proxy)</p>
-						<p>Brukere som har mailklient som kun støtter POP/IMAP må aktivere MFA (Multifactor authentication), for å få tilgang til "application password" som de kan benytte for å konfigurere mailklienten.</p>
-						<p>Løsningen støtter ikke FEIDE initiert logout (SLO). Det vil si at en ikke fra FEIDE siden kan initiere en logout på Office 365.</p>
-						<p>Av pilotbrukere er det rapportert utfordringer rundt Active Sync.</p>
+						<ul>
+							<li>Løsningen støtter ikke SAML ECP (Enhanced client or proxy)</li>
+							<li>Brukere som har mailklient som kun støtter POP/IMAP må aktivere MFA (Multifactor authentication), for å få tilgang til "application password" som de kan benytte for å konfigurere mailklienten.</li>
+							<li>Løsningen støtter ikke FEIDE initiert logout (SLO). Det vil si at en ikke fra FEIDE siden kan initiere en logout på Office 365.</li>
+							<li>Av pilotbrukere er det rapportert utfordringer rundt Active Sync.</li>
+						</ul>
 					</div>
 
-					<p>Kontakt rune.myrhaug@uninett.no dersom dette er interessant for din institusjon.<p>
+					<div class="bs-callout bs-callout-info" id="">
+							<h4>Pilotbrukere</h4>
+							<p>ivan.rasen@atea.no har implementert denne løsningen på to av sine kunder.</p>
+					</div>
+
+					<p>Kontakt rune.myrhaug@uninett.no ved spørsmål ut over dette.<p>
 				</div>
 				
 				<h3 id="admin" class="page-header">Lokal ADFS</h3>
