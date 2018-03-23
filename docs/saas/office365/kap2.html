@@ -42,6 +42,13 @@ slug: office365_kap2
 					<p>UNINETT har satt sammen en <a href="https://www.uninett.no/node/3477">veileder</a> der det gjøres rede for de viktigste lovene og reglene for bruk av skytjenester. Veilederen retter seg spesielt mot ansatte ved universiteter og høyskoler som har ansvaret for valg og forvaltning av skytjenester.<p>
 				</div>
 				
+				<h2 id="k_og_l-fortrolig_info" class="page-header">Office 365 - God praksis for klassifisering og lagring av fortrolig informasjon</h2>
+			
+				<div class="bs-docs-section">
+					<p>Moderne måter å samhandle på krever moderne beskyttelse. Tidligere var brannveggene og nettverkene samt de fysiske kontorplassene de viktigste barrierene for å komme til informasjon. Nå forventer brukerne at informasjon er tilgjengelig hele tiden fra overalt og på alle enheter. Virksomheter som velger å opprettholde de gamle tradisjonelle barrierene taper konkurransekraft mot de som følger med i tiden.<p>
+					<p>UNINETT sammen med en prosjektgruppe fra UH-sektoren i Q1 2018 produserte en <a href="/docs/saas/office365/documents/o365-god_praksis_for_k_og_l_av_fortrolig_info-v1_0.pdf">rapport "Office 365 - God praksis for klassifisering og lagring av fortrolig informasjon"</a>, som er ment å være et verktøy for hele sektoren i forhold til det å gi tydelig veiledning i prefererte sikkerhetsbarrierer i Office 365, samt hvordan disse bør konfigureres for også å kunne håndtere fortrolig og strengt fortrolig informasjon<p>
+				</div>
+
 				<h2 id="integrasjonsstrategi" class="page-header">Integrasjonsstrategi</h2>
 			
 				<div class="bs-docs-section">
@@ -91,14 +98,32 @@ slug: office365_kap2
 					<p><a href="https://securescore.office.com/">https://securescore.office.com/</a><p>
 				</div>
 
-				<h3 id="kravspesifikasjon" class="page-header">To-faktor autentisering</h3>
+				<h3 class="page-header">Mobile Device Management (MDM)</h3>
+
+				<div class="bs-docs-section">
+					<p>Mobile device management (MDM) er en bransjebetegnelse for administrasjon av mobile enheter, for eksempel smarttelefoner, nettbrett og bærbare datamaskiner.<p>
+					<ul>
+  						<li>Hva gjør du hvis en ansatt mister sin smarttelefon? Inneholder den informasjon som ikke burde komme på avveie? Er det en konflikt med en ansatt som gjør at man ikke lenger ønsker å gi vedkommende tilgang til bedriftens data? De fleste av oss har en telefon eller et nettbrett som er koblet opp mot mail-kontoer, dropbox, sosiale medier og kanskje også interne applikasjoner. Det kan fort bli kritisk dersom uvedkommende får tilgang. Har man en MDM-løsning kan IT-ansvarlig, eller den som administrerer systemet, enkelt logge seg på og gjøre en rekke tiltak for å unngå at fremmede får tak i bedriftens viktige data. Man kan blant annet sørge for at alle ansatte til enhver tid har på kodelås og har siste programvareoppdatering som er grunnleggende for å ivareta sikkerheten.</li>
+  						<li>Med en MDM-løsning får man en mye mer effektiv drift og bedre kontroll over enhetene som tilhører bedriften. IT-ansvarlig kan logge seg på administrasjons-verktøyet og enkelt se alle enheter, og viktig informasjon som: Type enhet, modell, navn, imei og serienummer. Han eller hun kan videre se når enheten sist var koblet opp mot internett, hvor mye ledig plass hver enkelt bruker har, hvilke applikasjoner som er installert og hvilket operativsystem som kjøres. Ut i fra oversikten (dashboard) kan administrator enkelt legge til eller fjerne enheter, kjøre oppdateringer, og etablere ønskede konfigurasjoner som bedriften ønsker på enhetene.</li>
+					</ul>					
+					<p>Microsoft sin løsning for MDM er Intune:<p>
+					<p>Intune inngår ikke i Office 365 lisensieringen og må ved ønske om slik funksjonalitet kjøpes i tillegg. Intune kan kjøpes som en separat lisens eller bundlet med flere funksjoner i Microsoft Enterprise Mobility (EMS):<p>
+					<p><a href="https://www.microsoft.com/nb-no/server-cloud/enterprise-mobility/overview.aspx">https://www.microsoft.com/nb-no/server-cloud/enterprise-mobility/overview.aspx</a><p>
+				</div>
+
+				<h3 class="page-header">To-faktor autentisering</h3>
 			
 				<div class="bs-docs-section">
 					<p>Mulighet til to-faktor autentisering (MFA – Multi-Factor Authentication) er inkludert i Office 365 og kan aktiveres per bruker. Dette fungerer sammen med FEIDE-pålogging. Det vil være anbefalt å aktivere to-faktor autentisering for brukere med Office 365 rollen «Global Administrator».<p>
 					<p><a href="https://support.office.com/en-us/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6">https://support.office.com/en-us/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6</a><p>
 				</div>
 
-				<h3 id="kravspesifikasjon" class="page-header">Information Rights Management (IRM)</h3>
+				<div class="bs-callout bs-callout-danger" id="">
+					<h4>Gammelt innhold:</h4>
+					<p>Mars 2018 - Det som er skrevet nedenfor er ikke vedlikehold og kan derfor ha feil og mangler.</p>
+			   </div>
+
+				<h3 class="page-header">Information Rights Management (IRM)</h3>
 			
 				<div class="bs-docs-section">
 					<p>Azure Information Protection - AIP (Tidligere Rights Management - RMS) er en løsning for å beskytte informasjon (IRM) i organisasjoner som har behov for å samhandle. Det være seg intern eller ekstern (med andre organisasjoner) samhandling.<p>
@@ -120,7 +145,7 @@ slug: office365_kap2
 					<p>Dersom IRM aktiveres på et SharePoint Online TeamSite dokument-bibliotek eller på et personlig OneDrive For Business lagringsområde, vil en ikke kunne høyreklikke i nettleseren og lage et nytt Word, Excel eller PowerPoint dokument. Office Online kan vise dokumenter som ligger i SharePoint dokument bibliotek med IRM beskyttelse, men dokumentene må opprettes/redigeres i Office Desktop applikasjonene. Unntak er dersom du IRM beskytter et dokument ved bruk av RMS desktopapplikasjonen (2.2.2.2) og laster opp dokumentet i et OneDrive/SharePoint dokument bibliotek. Da vil du ikke kunne lese dokumentet med Office Online. Vær også oppmerksom på at det ikke er supportert å flytte dokumenter mellom forskjellige SharePoint dokumentbibliotek med IRM beskyttelse aktivert.<p>
 				</div>
 				
-				<h4 id="kravspesifikasjon" class="page-header">SharePoint Online</h4>
+				<h4 class="page-header">SharePoint Online</h4>
 
 				<div class="bs-docs-section">
 					<p>For å ta i bruk IRM beskyttelse må du først sette opp «Rights Management». SharePoint Online er avhengig av Microsoft Active Directory Rights Management (Microsoft Azure AD RMS) tjenesten for å kryptere og tildele bruksbegrensninger.<p>
@@ -129,7 +154,7 @@ slug: office365_kap2
 					<p><a href="https://support.office.com/en-us/article/Set-up-Information-Rights-Management-IRM-in-SharePoint-admin-center-239ce6eb-4e81-42db-bf86-a01362fed65c">https://support.office.com/en-us/article/Set-up-Information-Rights-Management-IRM-in-SharePoint-admin-center-239ce6eb-4e81-42db-bf86-a01362fed65c</a><p>
 				</div>
 
-				<h5 id="kravspesifikasjon" class="page-header">SharePoint Online TeamSite</h5>
+				<h5 class="page-header">SharePoint Online TeamSite</h5>
 
 				<div class="bs-docs-section">
 					<p>Når dette er gjort har eier av en SharePoint Online Teamsite tilgang til å aktivere IRM på dokument bibliotek, for å beskytte filer som blir lastet ned.<p>
@@ -145,7 +170,7 @@ slug: office365_kap2
 					<p>Marker «Begrens tillatelser for dette biblioteket ved nedlasting» og sett ett navn og en beskrivelse. For eksempel «IRM_O365_TeamSite-<TeamSite-navn>», «IRM beskyttelse på TeamSite for <TeamSite-navn>»<p>
 				</div>
 				
-				<h5 id="kravspesifikasjon" class="page-header">OneDrive For Business</h5>
+				<h5 class="page-header">OneDrive For Business</h5>
 
 				<div class="bs-docs-section">
 					<p>Etter at IRM er aktivert av Office 365 Administrator i SharePoint administrasjonssenteret, kan hver bruker aktivere IRM på personlig OneDrive For Business lagringsområde.<p>
@@ -157,7 +182,7 @@ slug: office365_kap2
 					<p>Marker «Begrens tillatelser for dette biblioteket ved nedlasting» og set ett navn og en beskrivelse. For eksempel «IRM_O365_User-<brukernavn>», «IRM beskyttelse på OneDrive for <brukernavn>»<p>
 				</div>
 				
-				<h4 id="kravspesifikasjon" class="page-header">Beskytte enkeltfiler</h4>
+				<h4 class="page-header">Beskytte enkeltfiler</h4>
 
 				<div class="bs-docs-section">
 					<p>For å beskytte enkeltfiler må AIP applikasjonen installeres:<p>
@@ -168,7 +193,7 @@ slug: office365_kap2
 					<img class="fixed-ratio-resize" src="../screenshot/kap2_AzureAIP_FileProtection.jpg" alt=""/>
 				</div>
 				
-				<h4 id="kravspesifikasjon" class="page-header">Exchange Online</h4>
+				<h4 class="page-header">Exchange Online</h4>
 
 				<div class="bs-docs-section">
 					<p>For å aktivere IRM i Exchange Online, verifiser først at Azure RMS er aktivert.<p>
@@ -181,21 +206,7 @@ slug: office365_kap2
 					<p>Benytt deretter PowerShell til å aktivere IRM for Exchange Online:<p>
 					<p><a href="https://docs.microsoft.com/nb-no/rights-management/deploy-use/configure-office365">https://docs.microsoft.com/nb-no/rights-management/deploy-use/configure-office365</a><p>
 				</div>
-				
-				<h3 id="kravspesifikasjon" class="page-header">Mobile Device Management (MDM)</h3>
-
-				<div class="bs-docs-section">
-					<p>Mobile device management (MDM) er en bransjebetegnelse for administrasjon av mobile enheter, for eksempel smarttelefoner, nettbrett og bærbare datamaskiner.<p>
-					<ul>
-  						<li>Hva gjør du hvis en ansatt mister sin smarttelefon? Inneholder den informasjon som ikke burde komme på avveie? Er det en konflikt med en ansatt som gjør at man ikke lenger ønsker å gi vedkommende tilgang til bedriftens data? De fleste av oss har en telefon eller et nettbrett som er koblet opp mot mail-kontoer, dropbox, sosiale medier og kanskje også interne applikasjoner. Det kan fort bli kritisk dersom uvedkommende får tilgang. Har man en MDM-løsning kan IT-ansvarlig, eller den som administrerer systemet, enkelt logge seg på og gjøre en rekke tiltak for å unngå at fremmede får tak i bedriftens viktige data. Man kan blant annet sørge for at alle ansatte til enhver tid har på kodelås og har siste programvareoppdatering som er grunnleggende for å ivareta sikkerheten.</li>
-  						<li>Med en MDM-løsning får man en mye mer effektiv drift og bedre kontroll over enhetene som tilhører bedriften. IT-ansvarlig kan logge seg på administrasjons-verktøyet og enkelt se alle enheter, og viktig informasjon som: Type enhet, modell, navn, imei og serienummer. Han eller hun kan videre se når enheten sist var koblet opp mot internett, hvor mye ledig plass hver enkelt bruker har, hvilke applikasjoner som er installert og hvilket operativsystem som kjøres. Ut i fra oversikten (dashboard) kan administrator enkelt legge til eller fjerne enheter, kjøre oppdateringer, og etablere ønskede konfigurasjoner som bedriften ønsker på enhetene.</li>
-					</ul>					
-					<p>Microsoft sin løsning for MDM er Intune:<p>
-					<p>Intune inngår ikke i Office 365 lisensieringen og må ved ønske om slik funksjonalitet kjøpes i tillegg. Intune kan kjøpes som en separat lisens eller bundlet med flere funksjoner i Microsoft Enterprise Mobility (EMS):<p>
-					<p><a href="https://www.microsoft.com/nb-no/server-cloud/enterprise-mobility/overview.aspx">https://www.microsoft.com/nb-no/server-cloud/enterprise-mobility/overview.aspx</a><p>
-				</div>
-				
-				
+								
 			</div>
 			
 		</div>
